@@ -1,0 +1,28 @@
+version: '3.5'
+
+services:
+  campfire-app:
+    container_name: campfire-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+  campfire-storybook:
+    container_name: campfire-storybook
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - '9009:9009'
+    environment:
+      - NODE_ENV=development
+    command: "yarn run storybook"
