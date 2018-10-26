@@ -1,4 +1,3 @@
-// Should probably move ^ to a central file
 import React from "react";
 import ArtistCardComponent from ".";
 import Enzyme from 'enzyme';
