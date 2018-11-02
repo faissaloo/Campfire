@@ -5,9 +5,10 @@ function toTitleCase(toTransform) {
 }
 
 export default class Artist {
-  constructor(name, wikipage) {
+  constructor(name, wikipage, bandcampsearch) {
     this.name = name
     this.wikipage = wikipage
+    this.bandcampsearch = bandcampsearch
   }
 
   //Parse the wikipedia page

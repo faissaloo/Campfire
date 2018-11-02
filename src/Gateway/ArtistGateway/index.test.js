@@ -22,8 +22,9 @@ describe("ArtistGateway", () => {
         }
       };
 
-      artistRequest = nock("https://en.wikipedia.org")
-        .get("/w/api.php?action=query&prop=revisions&rvprop=content&format=json&formatversion=2&titles=Atari%20Teenage%20Riot")
+
+      let artistRequest = nock("https://en.wikipedia.org")
+        .get("/w/api.php?action=query&origin=*&prop=revisions&rvprop=content&format=json&formatversion=2&titles=Atari%20Teenage%20Riot")
         .reply(200, wikidata);
 
       let artistGateway = new ArtistGateway();
@@ -34,6 +35,7 @@ describe("ArtistGateway", () => {
     });
 
     it("Example 2", async () => {
+
       let wikidata = {
         query: {
           pages: [
@@ -45,8 +47,9 @@ describe("ArtistGateway", () => {
           ]
         }
       };
-      artistRequest = nock("https://en.wikipedia.org")
-        .get("/w/api.php?action=query&prop=revisions&rvprop=content&format=json&formatversion=2&titles=Mindless%20Self%20Indulgence")
+
+      let artistRequest = nock("https://en.wikipedia.org")
+        .get("/w/api.php?action=query&origin=*&prop=revisions&rvprop=content&format=json&formatversion=2&titles=Mindless%20Self%20Indulgence")
         .reply(200, wikidata);
 
       let artistGateway = new ArtistGateway();
