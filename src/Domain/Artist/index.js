@@ -14,7 +14,25 @@ export default class Artist {
   //Parse the wikipedia page
   genres() {
     let genreListGetter = /genre[\s]*=[\s]*(.*?(?:\n\|))/sm;
-    let rawGenres = this.wikipage.query.pages[0].revisions[0].content.match(genreListGetter)[1];
+
+    //This is why safe navigation operators exist
+    if (!
+      (
+        this.wikipage
+        && this.wikipage.query
+        && this.wikipage.query.pages
+        && this.wikipage.query.pages[0]
+        && this.wikipage.query.pages[0].revisions
+        && this.wikipage.query.pages[0].revisions[0]
+        && this.wikipage.query.pages[0].revisions[0].content
+      )
+    ) {
+      return [];
+    }
+
+    let matches = this.wikipage.query.pages[0].revisions[0].content.match(genreListGetter);
+    if (!matches || matches.length<2) {return []}
+    let rawGenres = matches[1]
     let genreFinder = /\[\[([A-Za-z ]+)\]\]|\|([A-Za-z ]+)\]\]/g;
     let genres = [];
 

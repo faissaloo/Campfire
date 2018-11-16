@@ -14,4 +14,26 @@ describe("Artist", () => {
       expect(artist.genres()).toEqual(["Electropunk", "Crunkcore", "Industrial Rock", "Electronic Rock", "Hip Hop", "New Wave", "Comedy Rock"])
     });
   });
+
+  describe("Gives an empty list of genres on invalid page", () => {
+    it("Missing query", () => {
+      let artist = new Artist(null, {});
+      expect(artist.genres()).toEqual([])
+    });
+
+    it("No pages", () => {
+      let artist = new Artist(null, {pages: []});
+      expect(artist.genres()).toEqual([])
+    });
+
+    it("No revisions", () => {
+      let artist = new Artist(null, {pages: [{revisions: []}]});
+      expect(artist.genres()).toEqual([])
+    });
+
+    it("No content", () => {
+      let artist = new Artist(null, {pages: [{revisions: [{content: ""}]}]});
+      expect(artist.genres()).toEqual([])
+    });
+  })
 });

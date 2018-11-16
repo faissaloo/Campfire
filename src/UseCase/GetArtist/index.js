@@ -5,7 +5,13 @@ export default class GetArtist {
 
   async execute(presenter, name) {
     let artist = await this.artistGateway.getArtist(name);
-    let genres = artist.genres();
-    presenter.presentArtist({genres, name})
+    if (artist) {
+      presenter.presentArtist({
+        genres: artist.genres(),
+        name: artist.name
+      }, name);
+    } else {
+      presenter.artistNotFound(name);
+    }
   }
 };

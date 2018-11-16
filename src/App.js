@@ -11,7 +11,10 @@ const getArtist = new GetArtist(artistGateway);
 class App extends Component {
   render() {
     return (
-      <ArtistCardHolderComponent name="Agent Orange (band)" getArtist={getArtist}/>
+      <div className="App">
+        <h1>Campfire</h1>
+        <ArtistCardHolderComponent name="" getArtist={getArtist}/>
+      </div>
     );
   }
 }
