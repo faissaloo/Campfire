@@ -3,5 +3,5 @@ import "./style.css";
 
 export default class LoadingIndicator extends React.Component {
   render = () =>
-    <div><progress/></div>
+    <div>Loading...</div>
 };
