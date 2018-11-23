@@ -6,7 +6,8 @@ describe("GetArtist", () => {
       getArtist: jest.fn(async () => null)
     };
     let presenterSpy = {
-      presentArtist: jest.fn()
+      presentArtist: jest.fn(),
+      artistNotFound: jest.fn()
     };
     let useCase = new GetArtist(artistGateway);
     let return_value = await useCase.execute(presenterSpy, 'Agent Orange');

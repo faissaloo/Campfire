@@ -20,9 +20,9 @@ export default class ArtistCardHolderComponent extends React.Component {
     }
   }
 
-  artistNotFound = (forArtistName) => {
+  artistNotFound = async (forArtistName) => {
     if (forArtistName === this.state.artistName) {
-      this.setState({artistData: null, loading: false, showHelpText: false});
+      await this.setState({artistData: null, loading: false, showHelpText: false});
     }
   }
 
@@ -40,18 +40,22 @@ export default class ArtistCardHolderComponent extends React.Component {
     }
   }
 
-  onChange = (e) => {
-    if (e.target.value === "") {
-      this.setState({loading: false, artistName: null, showHelpText: true});
+  onArtistChange = async (artistName) => {
+    if (artistName === "") {
+      await this.setState({loading: false, artistName: null, showHelpText: true});
     } else {
-      this.setState({loading: true, artistName: e.target.value, showHelpText: false});
-      this.props.getArtist.execute(this, e.target.value);
+      await this.setState({loading: true, artistName, showHelpText: false});
+      await this.props.getArtist.execute(this, artistName);
     }
+  }
+
+  onChangeDispatcher = (e) => {
+    this.onArtistChange(e.target.value)
   }
 
   render = () =>
     <div className="ArtistCardHolder" data-test="artist-card-holder">
-      <input className="artist-entry" data-test="artist-entry" onChange={this.onChange}/>
+      <input className="artist-entry" data-test="artist-entry" onChange={this.onChangeDispatcher}/>
       {this.renderArtistComponent()}
     </div>
 };
