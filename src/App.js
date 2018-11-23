@@ -13,6 +13,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Campfire</h1>
+        <h6><a href="https://github.com/faissalMT/Campfire">GitHub</a></h6>
         <ArtistCardHolderComponent name="" getArtist={getArtist}/>
       </div>
     );

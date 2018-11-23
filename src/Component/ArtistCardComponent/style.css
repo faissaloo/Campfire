@@ -1,12 +1,15 @@
 .artist-card {
+  box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+  background: #9ddede;
   text-align: center;
-  border: 3px solid black;
+  border: 3px outset #309090;
   padding: 10px;
   width: 15%;
   margin: 10px auto;
 }
 
 .artist-name {
+  font-weight: bolder;
   font-size: 2em;
 }
 

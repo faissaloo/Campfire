@@ -2,3 +2,9 @@
   padding: 10px;
   text-align: center;
 }
+
+input {
+  border-color: #40bfbf;
+  background: #fdfefe;
+  border-style: inset;
+}
