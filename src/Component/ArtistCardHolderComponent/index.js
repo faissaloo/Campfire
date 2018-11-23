@@ -1,6 +1,7 @@
 import React from 'react';
 import "./style.css";
 import ArtistCardComponent from "../ArtistCardComponent";
+import LoadingIndicator from "../LoadingIndicator";
 
 export default class ArtistCardHolderComponent extends React.Component {
   constructor(props) {
@@ -30,7 +31,7 @@ export default class ArtistCardHolderComponent extends React.Component {
     if (this.state.showHelpText) {
       return <div>To search for an artist, start typing!</div>
     } else if (this.state.loading) {
-      return <div>Loading</div>
+      return <LoadingIndicator/>
     } else {
       if (this.state.artistData === null) {
         return <div>Unknown artist</div>
