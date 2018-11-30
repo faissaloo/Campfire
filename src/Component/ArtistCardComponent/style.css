@@ -1,4 +1,4 @@
-.artist-card {
+.ArtistCardComponent {
   box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
   background: #9ddede;
   text-align: center;
@@ -8,12 +8,12 @@
   margin: 10px auto;
 }
 
-.artist-name {
+.ArtistCardComponent .artist-name {
   font-weight: bolder;
   font-size: 2em;
 }
 
-.genre-list {
+.ArtistCardComponent .genre-list {
   padding: 0;
   list-style:none;
   list-style-type: none;

@@ -54,9 +54,10 @@ export default class ArtistCardHolderComponent extends React.Component {
     this.onArtistChange(e.target.value)
   }
 
-  render = () =>
+  render = () => (
     <div className="ArtistCardHolder" data-test="artist-card-holder">
-      <input className="artist-entry" data-test="artist-entry" onChange={this.onChangeDispatcher} autofocus="true"/>
+      <input className="artist-entry" data-test="artist-entry" onChange={this.onChangeDispatcher} autoFocus/>
       {this.renderArtistComponent()}
     </div>
+  )
 };

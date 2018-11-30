@@ -3,7 +3,7 @@
   text-align: center;
 }
 
-input {
+.ArtistCardHolder input {
   border-color: #40bfbf;
   background: #fdfefe;
   border-style: inset;
