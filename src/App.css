@@ -1,3 +1,6 @@
 .App {
   text-align: center;
 }
+.Links a {
+  padding: 1em;
+}

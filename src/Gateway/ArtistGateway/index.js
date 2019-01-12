@@ -35,7 +35,7 @@ export default class ArtistGateway {
 
     let i;
     for (i = 0; i < this.disambiguations.length; i++) {
-        artistFound = await this.getArtistVerbatim(this.disambiguate(i, name));
+        artistFound = await this.getArtistVerbatim(name, this.disambiguate(i, name));
         if (artistFound.genres().length) {
           return artistFound;
         }
@@ -43,9 +43,9 @@ export default class ArtistGateway {
     return null;
   }
 
-  async getArtistVerbatim(name) {
+  async getArtistVerbatim(name, verbatimName) {
     let rawResponse = await fetch(
-      `https://en.wikipedia.org/w/api.php?action=query&origin=*&prop=revisions&rvprop=content&format=json&formatversion=2&titles=${name}`
+      `https://en.wikipedia.org/w/api.php?action=query&origin=*&prop=revisions&rvprop=content&format=json&formatversion=2&titles=${verbatimName}`
     );
     let jsonResponse = await rawResponse.json();
     return new Artist(name, jsonResponse);
