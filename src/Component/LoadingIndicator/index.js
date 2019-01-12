@@ -5,7 +5,7 @@ import "./style.css";
 export default class LoadingIndicator extends React.Component {
   render = () => (
     <div className="LoadingIndicator">
-      <img src={loading}/><br/>
+      <img src={loading} alt="le meme dance"/><br/>
       Loading...
     </div>
   )

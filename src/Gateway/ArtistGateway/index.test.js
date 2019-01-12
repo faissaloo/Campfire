@@ -53,23 +53,35 @@ describe("ArtistGateway", () => {
       };
 
       let disambiguations = [
-        "",
-        "%20%28singer%29",
-        "%20%28musician%29",
-        "%20%28rapper%29",
-        "%20%28entertainer%29",
-        "%20%28composer%29",
-        "%20%28DJ%29",
-        "%20%28music%20producer%29",
-        "%20%28band%29",
-        "%20%28group%29",
-        "%20%28vocal%20ensemble%29",
-        "%20%28duo%29"
+        "$ARTIST",
+        "$ARTIST%20%28singer%29",
+        "$ARTIST%20%28musician%29",
+        "$ARTIST%20%28rapper%29",
+        "$ARTIST%20%28entertainer%29",
+        "$ARTIST%20%28composer%29",
+        "$ARTIST%20%28DJ%29",
+        "$ARTIST%20%28music%20producer%29",
+        "$ARTIST%20%28band%29",
+        "$ARTIST%20%28group%29",
+        "$ARTIST%20%28vocal%20ensemble%29",
+        "$ARTIST%20%28duo%29",
+        "The%20$ARTIST",
+        "The%20$ARTIST%20%28singer%29",
+        "The%20$ARTIST%20%28musician%29",
+        "The%20$ARTIST%20%28rapper%29",
+        "The%20$ARTIST%20%28entertainer%29",
+        "The%20$ARTIST%20%28composer%29",
+        "The%20$ARTIST%20%28DJ%29",
+        "The%20$ARTIST%20%28music%20producer%29",
+        "The%20$ARTIST%20%28band%29",
+        "The%20$ARTIST%20%28group%29",
+        "The%20$ARTIST%20%28vocal%20ensemble%29",
+        "The%20$ARTIST%20%28duo%29"
       ];
 
       let requests = disambiguations.map((disambiguation) =>
         (nock("https://en.wikipedia.org")
-          .get(`/w/api.php?action=query&origin=*&prop=revisions&rvprop=content&format=json&formatversion=2&titles=Mindless%20Self%20Indulgence${disambiguation}`)
+          .get(`/w/api.php?action=query&origin=*&prop=revisions&rvprop=content&format=json&formatversion=2&titles=${disambiguation.replace("$ARTIST", "Mindless%20Self%20Indulgence")}`)
           .reply(200, wikidata))
       );
 
