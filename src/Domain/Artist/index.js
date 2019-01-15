@@ -33,7 +33,7 @@ export default class Artist {
     let matches = this.wikipage.query.pages[0].revisions[0].content.match(genreListGetter);
     if (!matches || matches.length<2) {return []}
     let rawGenres = matches[1]
-    let genreFinder = /\[\[([A-Za-z ]+)\]\]|\|([A-Za-z ]+)\]\]/g;
+    let genreFinder = /\[\[([A-Za-z\- ]+)\]\]|\|([A-Za-z\- ]+)\]\]/g;
     let genres = [];
 
     let match = genreFinder.exec(rawGenres);
